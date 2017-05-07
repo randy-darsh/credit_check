@@ -6,17 +6,17 @@ index = 0
 doubled = []
 double_individual = []
 
-individual.each do |i|
+individual.each do |i| # loop to find if individual numbers are odd or even
  if index.even?
    sum = (i.to_i) + sum
    index += 1
  else index.odd?
-   double << i.to_i
+   double_individual << i.to_i
    index += 1
  end
 end
 
-double.each do |i|
+double_individual.each do |i| # loop to double each individual number
   if (i * 2) < 10
     sum = (i * 2) + sum
   else
@@ -24,7 +24,7 @@ double.each do |i|
   end
 end
 
-doubled.flatten.each do |i|
+doubled.flatten.each do |i| # flatten to return (new) combined array
   sum = (i.to_i) + sum
 end
 
