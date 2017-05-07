@@ -28,7 +28,7 @@ doubled.flatten.each do |i| # flatten to return (new) combined array
   sum = (i.to_i) + sum
 end
 
-valid = false
+valid = false # ending loop for validation
 if sum % 10 == 0
   valid = true
 else
