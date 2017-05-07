@@ -1,14 +1,42 @@
-def number_is_luhn_valid?(credit_card_number)
-  cc_digits = credit_card_number.to_s.reverse.chars.map(&:to_i)
-  check_sum = 0
+card_number = "6011797668867828"
 
-  cc_digits.each_slice(2) do |odd, even|
-    check_sum += odd
-    next unless even
-    even *= 2
-    even = even.divmod(10).inject(:+) if even > 9
-    check_sum += even
+individual = card_number.reverse.split(//)
+sum = 0
+index = 0
+doubled = []
+double_individual = []
+
+individual.each do |i|
+ if index.even?
+   sum = (i.to_i) + sum
+   index += 1
+ else index.odd?
+   double << i.to_i
+   index += 1
+ end
+end
+
+double.each do |i|
+  if (i * 2) < 10
+    sum = (i * 2) + sum
+  else
+    doubled << (i * 2).to_s.split(//)
   end
+end
 
-  return check_sum.modulo(10) == 0
+doubled.flatten.each do |i|
+  sum = (i.to_i) + sum
+end
+
+valid = false
+if sum % 10 == 0
+  valid = true
+else
+  valid = false
+end
+
+if valid == true
+  puts "The number is valid."
+else
+  puts "The number is invalid."
 end
