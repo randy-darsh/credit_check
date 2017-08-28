@@ -35,6 +35,8 @@ else
   valid = false
 end
 
+# just doin some stuff that doesnt do anything
+
 if valid == true
   puts "The number is valid."
 else
